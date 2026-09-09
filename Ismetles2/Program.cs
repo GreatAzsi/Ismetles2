@@ -13,6 +13,14 @@
             Book.Describe(book3);
 
             Console.WriteLine(Book.TotalBooks);
+           
+            book1.IsAvailable = true;
+            Console.WriteLine(Book.Borrow(book1));
+            Console.WriteLine(Book.Borrow(book1));
+            Book.Return(book1);
+            Console.WriteLine(Book.Borrow(book1));
+
+
         }
     }
 }

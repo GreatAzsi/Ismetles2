@@ -11,7 +11,7 @@ namespace Ismetles2
         public string Title { get; set; }
         public string Author { get; set; }
         private int PageCount;
-        public bool IsAvailable { get; set; }
+        public bool IsAvailable { get; set; } = true;
         public static int TotalBooks { get; private set; } = 0;
 
         public int PageCountGetSet() 
