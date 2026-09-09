@@ -12,6 +12,7 @@ namespace Ismetles2
         public string Author { get; set; }
         private int PageCount;
         public bool IsAvailable { get; set; }
+        public static int TotalBooks { get; private set; } = 0;
 
         public int PageCountGetSet() 
         {
@@ -43,21 +44,33 @@ namespace Ismetles2
                 return PageCountGetSet();
             }
         }
+        public int PageCountSet(int pageCount)
+        {
+                if (pageCount < 0)
+                {
+                    PageCount = 0;
+                    return PageCount;
+                }
+                else
+                {
+                    PageCount = pageCount;
+                    return PageCount;
+                }
+            }
+            
         public Book(string title, string author, int pageCount)
         {
             Title = title;
             Author = author;
-            PageCount = pageCount;
+            PageCount = PageCountSet(pageCount);
+            TotalBooks++;
         }
         public Book(string title, string author)
         {
             Title = title;
             Author = author; 
             PageCount = 0;
-        }
-        public override string ToString()
-        {
-            return $"{Title} by {Author} with the Pagecount of {PageCount}";
+            TotalBooks++;
         }
 
         public static void Describe(Book book)
