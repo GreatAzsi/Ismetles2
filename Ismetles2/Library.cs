@@ -39,6 +39,48 @@ namespace Ismetles2
             }
             return null;
         }
+        public List<Book> FindByAuthor(string author) 
+        {
+            List<Book> authorBooks = new List<Book>();
+            foreach (Book book in Books)
+            {
+                if (book.Title == author)
+                {
+                    authorBooks.Add(book);
+                }
+            }
+            return authorBooks;
+
+        }
+        public int AllPages()
+        {
+            int totalPages = 0;
+            foreach (Book book in Books)
+            {
+                totalPages += book.PageCountGet();
+            }
+            return totalPages;
+        }
+        public double AvgPages() 
+        {
+            if (BookCount == 0)
+            {
+                return 0;
+            }
+            return (double)AllPages() / BookCount;
+        }
+        public List<Book> AvailableBooks()
+        {
+            List<Book> availableBooks = new List<Book>();
+            foreach (Book book in Books)
+            {
+                if (book.IsAvailable)
+                {
+                    availableBooks.Add(book);
+                }
+            }
+            return availableBooks;
+        }
     }
     
 }

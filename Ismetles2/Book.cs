@@ -14,35 +14,9 @@ namespace Ismetles2
         public bool IsAvailable { get; set; } = true;
         public static int TotalBooks { get; private set; } = 0;
 
-        public int PageCountGetSet() 
+        public int PageCountGet() 
         {
-            Console.WriteLine("Please get or set the Pagecount of the Book");
-            string ans = Console.ReadLine();
-            
-            if(ans.ToLower() == "get")
-            {
-                return PageCount;
-            }
-            else if (ans.ToLower() == "set")
-            {
-                Console.WriteLine("Enter new page count:");
-                int newPageCount = int.Parse(Console.ReadLine());
-                if(newPageCount < 0)
-                {
-                    PageCount = 0;
-                    return PageCount;
-                }
-                else
-                {
-                    PageCount = newPageCount;
-                    return PageCount;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter 'get' or 'set'.");
-                return PageCountGetSet();
-            }
+            return PageCount;
         }
         public int PageCountSet(int pageCount)
         {

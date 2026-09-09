@@ -31,7 +31,24 @@
             library.AddBook(book5);
             library.AddBook(book6);
 
-
+            Console.WriteLine($"Total books in library: {library.BookCount}");
+            Console.WriteLine($"Total pages in library: {library.AllPages()}");
+            Console.WriteLine($"Average pages in library: {library.AvgPages()}");   
+            List<Book> salvatoreBooks = library.FindByAuthor("R.A Salvatore");
+            Book.Describe(library.FindByTitle("Streams Of Silver"));
+            Console.WriteLine($"Available Books:");
+            List<Book> availableBooks = library.AvailableBooks();
+            foreach (Book book in availableBooks)
+            {
+                Book.Describe(book);
+            }
+            Book.Borrow(book6);
+            Console.WriteLine($"Available Books after borrowing one:");
+            availableBooks = library.AvailableBooks();
+            foreach (Book book in availableBooks)
+            {
+                Book.Describe(book);
+            }
         }
     }
 }
