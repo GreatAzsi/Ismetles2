@@ -10,6 +10,7 @@ namespace Ismetles2
     {
         public string Name { get; set; }
         private List<Book> Books { get; set; }
+        public int BookCount { get { return Books.Count; } }
 
         public Library(string name)
         {
@@ -20,7 +21,24 @@ namespace Ismetles2
         {
             Books.Add(book);
         }
-        
+        public void PrintAll()
+        {
+            foreach (Book book in Books)
+            {
+                Book.Describe(book);
+            }
+        }
+        public Book FindByTitle(string title)
+        {
+            foreach(Book book in Books)
+            {
+                    if (book.Title == title)
+                    {
+                        return book;
+                    }
+            }
+            return null;
+        }
     }
     
 }
